@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-import {Button,Navbar,Nav,NavDropdown,Form,FormControl,Container,Row,Col} from 'react-bootstrap'
+import React, { Component } from 'react';
+import {Button,Navbar,Nav,Container,Row,Col} from 'react-bootstrap'
 
 class Header extends Component {
     render() {
         return (
-            <div>
-
+            <div style={{backgroundColor:"white"}}>
                 <Navbar expand="lg" style={{margin:"0px",padding:"0px"}} >
                 <Navbar.Collapse id="basic-navbar-nav">
 
@@ -28,8 +27,10 @@ class Header extends Component {
                 </Container>
                 </Navbar.Collapse>
                 </Navbar>
+
             </div>
         )
     }
 }
 export default Header
+
