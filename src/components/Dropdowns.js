@@ -1,15 +1,18 @@
 import React from 'react'
-import {InputGroup,Dropdown,DropdownButton} from "react-bootstrap"
+import "../App.css"
+import {InputGroup,Dropdown,DropdownButton, Container, Row,Col} from "react-bootstrap"
 
 export default function Dropdowns() {
   return (
     <div>
+      <Container>
+      <Row>
+        <Col>
     <InputGroup className="mb-3">
     <DropdownButton
-      as={InputGroup.Prepend}
       variant="outline-secondary"
-      title="Dropdown"
-      id="input-group-dropdown-1"
+      title="User Name"
+    
     >
       <Dropdown.Item href="#">Action</Dropdown.Item>
       <Dropdown.Item href="#">Another action</Dropdown.Item>
@@ -18,12 +21,13 @@ export default function Dropdowns() {
       <Dropdown.Item href="#">Separated link</Dropdown.Item>
     </DropdownButton>
   </InputGroup>
-  <InputGroup className="mb-3">
+  </Col>
+  <Col>  <InputGroup className="mb-3">
     <DropdownButton
-      as={InputGroup.Prepend}
       variant="outline-secondary"
-      title="Dropdown"
-      id="input-group-dropdown-1"
+      title="Status"
+     style={{width:"100%"}}
+      id="status"
     >
       <Dropdown.Item href="#">Action</Dropdown.Item>
       <Dropdown.Item href="#">Another action</Dropdown.Item>
@@ -32,12 +36,16 @@ export default function Dropdowns() {
       <Dropdown.Item href="#">Separated link</Dropdown.Item>
     </DropdownButton>
   </InputGroup>
-  <InputGroup className="mb-3">
-  <DropdownButton
-    as={InputGroup.Prepend}
+  </Col>
+  </Row>
+  <Row>
+    <Col>
+  <InputGroup className="mb-3"> 
+  <DropdownButton 
     variant="outline-secondary"
-    title="Dropdown"
-    id="input-group-dropdown-1"
+    title="Date"
+    id="date"
+    style={{width:"100%"}}
   >
     <Dropdown.Item href="#">Action</Dropdown.Item>
     <Dropdown.Item href="#">Another action</Dropdown.Item>
@@ -46,12 +54,14 @@ export default function Dropdowns() {
     <Dropdown.Item href="#">Separated link</Dropdown.Item>
   </DropdownButton>
 </InputGroup>
+</Col>
+<Col>
 <InputGroup className="mb-3">
 <DropdownButton
-  as={InputGroup.Prepend}
   variant="outline-secondary"
-  title="Dropdown"
-  id="input-group-dropdown-1"
+  title="Property"
+  style={{width:"100%"}}
+  id="property"
 >
   <Dropdown.Item href="#">Action</Dropdown.Item>
   <Dropdown.Item href="#">Another action</Dropdown.Item>
@@ -60,6 +70,9 @@ export default function Dropdowns() {
   <Dropdown.Item href="#">Separated link</Dropdown.Item>
 </DropdownButton>
 </InputGroup>
+</Col>
+</Row>
+</Container>
 </div>
   )
 }
