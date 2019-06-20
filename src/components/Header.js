@@ -21,7 +21,7 @@ class Header extends Component {
                         </Nav>
                     </Col>
                     <Col>
-                     <div style={{height:"100%",paddingTop:"25px",textAlign:'right'}}> bell <span> smile</span> </div>
+                     <div style={{height:"100%",paddingTop:"25px",textAlign:'right'}}> </div>
                     </Col>
                 </Row>
                 </Container>
