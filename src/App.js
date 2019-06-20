@@ -2,6 +2,8 @@ import React from 'react';
 
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import SideBarRight from './components/SideBarRight';
+import Messenger from './components/Messenger';
 
 function App() {
   return (
@@ -14,10 +16,10 @@ function App() {
         <Sidebar/>
         </div>
         <div className="col-md-6">
-        <Sidebar/>
+        <Messenger/>
         </div>
         <div className="col-md-3">
-        <Sidebar/>
+        <SideBarRight/>
         </div>
         </div>
       </div>
