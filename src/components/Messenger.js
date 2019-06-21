@@ -27,15 +27,33 @@ export default class Messenger extends Component {
                 </div>
             </div>
             <div style={{background:"white"}}>
-                <div style={{height:"400px",borderBottom:"1px solid black"}}></div>
-                <InputGroup className="mb-3">
+                <div style={{height:"400px",borderBottom:"1px solid black",overflowY:"scroll"}}>
+                <div className="recieved_message" style={{margin:"10px",height:"150px"}}>
+                  <div style={{float:"left",width:"20%"}}>
+                  <div style={{float:"left",margin:"10% 0px 0px 30%",height:"64px",width:"64px",borderRadius:"32px",backgroundColor:"#C0CCDA"}}></div>
+                  </div>
+                  <div style={{float:"right",width:"70%",marginRight:"10%"}}>  
+                   <p style={{marginBottom:"5px",backgroundColor:"#C0CCDA",padding:"20px",borderRadius:"8px",fontSize:"14px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p> 
+                    <p style={{fontSize:"16px"}}>Eugene Lawson</p>
+                  </div>
+                </div>
+                <div className="sent_message" style={{margin:" 40px 10px 0px 0px",height:"150px"}}>
+                  <div style={{float:"right",width:"70%"}}>  
+                   <p style={{marginBottom:"5px",backgroundColor:"#C0CCDA",padding:"20px",borderRadius:"8px",fontSize:"14px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>   
+                  </div>
+                </div>
+                </div>
+    <InputGroup className="mb-3">
     <FormControl
-      placeholder="Recipient's username"
+      placeholder="Reply"
       aria-label="Recipient's username"
       aria-describedby="basic-addon2"
+      style={{border:"unset",marginTop:"10px",padding:"30px 50px"}}
     />
     <InputGroup.Append>
-      <Button variant="outline-secondary">Button</Button>
+      <Button variant="outline-secondary" style={{border:"unset",marginTop:"10px"}}>
+      <i className="fa fa-caret-right" style={{fontSize:"22px"}}></i>
+      </Button>
     </InputGroup.Append>
   </InputGroup>
             </div>
