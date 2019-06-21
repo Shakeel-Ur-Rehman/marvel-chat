@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import {InputGroup,FormControl,Button} from "react-bootstrap"
 import Switch from "react-switch"
+import {connect} from 'react-redux'
 
-export default class Messenger extends Component {
+ class Messenger extends Component {
+   constructor(props)
+   {
+     super(props)
+   }
+  
     render() {
+      var activekey=this.props.inbox.filter(inbox=>inbox.id==this.props.active)
         return (
             <div style={{height:"550px"}}>
             <div style={{display:"flex",flexDirection:"column"}}>
             <div style={{marginBottom:"10px",background:"white"}}>
-            <p style={{margin:"10px",fontSize:"18px",float:"left"}}>Eugene Lawson<span style={{color:"#5A5A5A",marginLeft:"15px"}}>Last active an hour ago</span></p>
+            <p style={{margin:"10px",fontSize:"18px",float:"left"}}>{activekey[0].name}<span style={{color:"#5A5A5A",marginLeft:"15px"}}>Last active an hour ago</span></p>
             <div style={{float:"right",marginTop:"15px"}}>
             <Switch
                         checked={false}
@@ -37,21 +44,28 @@ export default class Messenger extends Component {
                     <p style={{fontSize:"16px"}}>Eugene Lawson</p>
                   </div>
                 </div>
-                <div className="sent_message" style={{margin:" 40px 10px 0px 0px",height:"150px"}}>
+
+              {activekey[0].messages.map(value=>
+
+                <div className="sent_message" style={{margin:" 40px 10px 0px 0px"}}>
                   <div style={{float:"right",width:"70%"}}>  
-                   <p style={{marginBottom:"5px",backgroundColor:"#C0CCDA",padding:"20px",borderRadius:"8px",fontSize:"14px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>   
+                   <p style={{marginBottom:"5px",backgroundColor:"#C0CCDA",padding:"20px",borderRadius:"8px",fontSize:"14px"}}>{value}</p>   
                   </div>
-                </div>
+                  
+                </div>)
+              }
                 </div>
     <InputGroup className="mb-3">
     <FormControl
+      value={this.props.message}
       placeholder="Reply"
       aria-label="Recipient's username"
       aria-describedby="basic-addon2"
+      onChange={(e)=>this.props.new_message(e.target.value)}
       style={{border:"unset",marginTop:"10px",padding:"30px 50px"}}
     />
     <InputGroup.Append>
-      <Button variant="outline-secondary" style={{border:"unset",marginTop:"10px"}}>
+      <Button variant="outline-secondary" onClick={()=>this.props.send_message()} style={{border:"unset",marginTop:"10px"}}>
       <i className="fa fa-caret-right" style={{fontSize:"22px"}}></i>
       </Button>
     </InputGroup.Append>
@@ -62,3 +76,18 @@ export default class Messenger extends Component {
         )
     }
 }
+function mapStateToProps(state) {
+  return {  
+  inbox : state.simpleReducer.inbox,
+  active: state.simpleReducer.active_inbox,
+  message:state.simpleReducer.new_message
+  };
+}
+function mapDispatchToProps(dispatch){
+  return{
+       new_message:(message)=>dispatch({type:"ChangeNewMessage",message}),
+       send_message:()=>dispatch({type:"Send_Message"})
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Messenger);
