@@ -11,7 +11,8 @@ const initialstate={
         }
     ],
     active_inbox:1,
-    active_ownership:false
+    active_ownership:false,
+    new_message:""
 
     
 }
@@ -27,6 +28,22 @@ export default (state = initialstate, action) => {
           ...state,
             active_ownership:!state.active_ownership
       }
+      case 'ChangeNewMessage':
+        return {
+            ...state,
+              new_message:action.message
+        }
+        case 'Send_Message':
+            var new_inbox=state.inbox
+            var index=new_inbox.findIndex(value=>value.id==state.active_inbox);
+            new_inbox[index].messages.push(state.new_message);
+            return{
+                ...state,
+                inbox:[
+                   ...new_inbox
+                ],
+                new_message:""
+            }
      default:
       return state
     }
