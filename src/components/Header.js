@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button,Navbar,Nav,Container,Row,Col} from 'react-bootstrap'
+import {Button,Navbar,Nav,Container,Row,Col, Badge} from 'react-bootstrap'
 
 class Header extends Component {
     render() {
@@ -21,7 +21,13 @@ class Header extends Component {
                         </Nav>
                     </Col>
                     <Col>
-                     <div style={{height:"100%",paddingTop:"25px",textAlign:'right'}}> </div>
+                     <div style={{height:"100%",paddingTop:"25px",textAlign:'right'}}>
+                    <span style={{marginRight:"10px"}}>
+                        <i className="fa fa-bell" style={{fontSize:"35px"}}></i>
+                        <Badge variant="danger" style={{top:"-17px",position: "relative",left: "-36px"}}>7</Badge>
+                        </span>
+                    <span><i className="fa fa-smile-o" style={{fontSize:"35px"}}></i></span>
+                          </div>
                     </Col>
                 </Row>
                 </Container>
