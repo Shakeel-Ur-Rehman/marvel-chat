@@ -2,19 +2,20 @@ import React, { Component } from 'react'
 import InboxDetail from './InboxDetail';
 import { Container } from 'react-bootstrap';
 import Switch from "react-switch";
+import {connect} from 'react-redux'
 
-export default class SideBarRight extends Component {
+ class SideBarRight extends Component {
     render() {
         return (
-            <div>
+            <div>    
             <div style={{display:"flex",flexDirection:"column"}}>
             <InboxDetail/>
             <div>
-            <div  style={{background:"white",height:"52px",padding:"10px",marginBottom:"10px"}}>
+                <div  style={{background:"white",height:"52px",padding:"10px",marginBottom:"10px"}}>
                 <p style={{float:"left"}}>Take Ownership</p>
-                <div style={{float:"right"}}>
-                <Switch
-                        checked={false}
+                 <div style={{float:"right"}}>
+                    <Switch
+                        checked={this.props.active}
                         onColor="#86d3ff"
                         onHandleColor="#2693e6"
                         handleDiameter={20}
@@ -26,9 +27,10 @@ export default class SideBarRight extends Component {
                         width={35}
                         className="react-switch"
                         id="material-switch"
-                />
-            </div>
-            </div>
+                        onChange={()=>this.props.changeActiveOwnership()}
+                    />
+                 </div>
+                </div>
             </div>
             <div style={{background:"white"}}>
             <Container>
@@ -44,3 +46,15 @@ export default class SideBarRight extends Component {
         )
     }
 }
+function mapStateToProps(state) {
+    return {
+    active: state.simpleReducer.active_ownership
+    };
+  }
+function mapDispatchToProps(dispatch){
+  
+    return{
+        changeActiveOwnership:()=>dispatch({type:"ChangeActiveOwnership"})
+    }
+  }
+  export default connect(mapStateToProps,mapDispatchToProps)(SideBarRight);
