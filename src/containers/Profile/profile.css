@@ -1,0 +1,18 @@
+#changeplan{
+    border-color: black;
+    background: unset;
+    color: black;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+.lineheight{
+    border-bottom:1px solid black;line-height:3
+}
+#profile{
+    background-color:white;
+    padding:100px 50px
+}
+#profiletext{
+    margin:50px 0px;
+    text-align:center
+}
