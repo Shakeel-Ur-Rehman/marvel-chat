@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from "react-redux"
 
 function InboxDetail({inbox,active}) {
-    var activekey=inbox.filter(inbox=>inbox.id==active)
+    var activekey=inbox.filter(inbox=>inbox.id===active)
     console.log(activekey)
     return (
         
