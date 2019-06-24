@@ -1,0 +1,32 @@
+#maincontainer{
+    margin:20px 0px
+}
+#heading{
+    float:left;
+    margin-right:30px
+}
+#Main{
+    display:flex;
+    flex-direction:column;
+    margin-top:20px
+}
+.mainChilds{
+    height:95px;
+    background:white;
+    margin-bottom:10px;
+    padding-top:30px
+}
+.image{
+    width:50px;
+    margin:-10px 10px;
+    height:50px;
+    border-radius:25px;
+    background:gray
+}
+.closeIcon{
+    float:right;
+    margin:-10px;
+    font-size:46px;
+    margin-right:35px;
+    cursor:pointer
+}

@@ -1,28 +1,24 @@
 import React from 'react';
-
 import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import SideBarRight from './components/SideBarRight';
-import Messenger from './components/Messenger';
-
+import {Route,BrowserRouter,Switch} from "react-router-dom"
+import Conversations from './containers/Conversations';
+import Members from "./containers/Members"
+import LiveScritps from "./containers/LiveScripts"
+import Login from "./containers/Login"
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <Header/>
-
-      <div className="container-fluid" style={{marginTop:"20px"}}>
-        <div className="row">
-          <div className="col-md-3">
-        <Sidebar/>
-        </div>
-        <div className="col-md-6">
-        <Messenger/>
-        </div>
-        <div className="col-md-3">
-        <SideBarRight/>
-        </div>
-        </div>
-      </div>
+      <Switch>
+      <Route exact path="/" component={Conversations}/>
+      <Route exact path="/login" component={Login}/>
+      <Route exact path="/conversations" component={Conversations}/>
+      <Route exact path="/members" component={Members}/>
+      <Route exact path="/livescripts" component={LiveScritps}/>
+      </Switch>
+      </BrowserRouter>
+      
     </div>
   );
 }

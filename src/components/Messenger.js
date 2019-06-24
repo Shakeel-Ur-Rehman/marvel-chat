@@ -4,13 +4,8 @@ import Switch from "react-switch"
 import {connect} from 'react-redux'
 
  class Messenger extends Component {
-   constructor(props)
-   {
-     super(props)
-   }
-  
     render() {
-      var activekey=this.props.inbox.filter(inbox=>inbox.id==this.props.active)
+      var activekey=this.props.inbox.filter(inbox=>inbox.id===this.props.active)
         return (
             <div style={{height:"550px"}}>
             <div style={{display:"flex",flexDirection:"column"}}>
@@ -18,7 +13,8 @@ import {connect} from 'react-redux'
             <p style={{margin:"10px",fontSize:"18px",float:"left"}}>{activekey[0].name}<span style={{color:"#5A5A5A",marginLeft:"15px"}}>Last active an hour ago</span></p>
             <div style={{float:"right",marginTop:"15px"}}>
             <Switch
-                        checked={false}
+                        checked={this.props.active_complete_inbox}
+                        onChange={()=>this.props.make_chat_complete()}
                         onColor="#86d3ff"
                         onHandleColor="#2693e6"
                         handleDiameter={20}
@@ -34,7 +30,7 @@ import {connect} from 'react-redux'
                 </div>
             </div>
             <div style={{background:"white"}}>
-                <div style={{height:"400px",borderBottom:"1px solid black",overflowY:"scroll"}}>
+                <div id="messages" style={{height:"910px",borderBottom:"1px solid black",overflowY:"scroll"}}>
                 <div className="recieved_message" style={{margin:"10px",height:"150px"}}>
                   <div style={{float:"left",width:"20%"}}>
                   <div style={{float:"left",margin:"10% 0px 0px 30%",height:"64px",width:"64px",borderRadius:"32px",backgroundColor:"#C0CCDA"}}></div>
@@ -47,7 +43,7 @@ import {connect} from 'react-redux'
 
               {activekey[0].messages.map(value=>
 
-                <div className="sent_message" style={{margin:" 40px 10px 0px 0px"}}>
+                <div key={value} className="sent_message" style={{margin:" 40px 10px 0px 0px"}}>
                   <div style={{float:"right",width:"70%"}}>  
                    <p style={{marginBottom:"5px",backgroundColor:"#C0CCDA",padding:"20px",borderRadius:"8px",fontSize:"14px"}}>{value}</p>   
                   </div>
@@ -59,9 +55,15 @@ import {connect} from 'react-redux'
     <FormControl
       value={this.props.message}
       placeholder="Reply"
+      onKeyPress={(e)=>{
+        if(e.which===13){
+          this.props.send_message() 
+        }
+      }}
       aria-label="Recipient's username"
       aria-describedby="basic-addon2"
-      onChange={(e)=>this.props.new_message(e.target.value)}
+      onChange={(e)=>{
+        this.props.new_message(e.target.value)}}
       style={{border:"unset",marginTop:"10px",padding:"30px 50px"}}
     />
     <InputGroup.Append>
@@ -77,7 +79,8 @@ import {connect} from 'react-redux'
     }
 }
 function mapStateToProps(state) {
-  return {  
+  return { 
+  active_complete_inbox:state.simpleReducer.active_complete_inbox, 
   inbox : state.simpleReducer.inbox,
   active: state.simpleReducer.active_inbox,
   message:state.simpleReducer.new_message
@@ -86,7 +89,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
   return{
        new_message:(message)=>dispatch({type:"ChangeNewMessage",message}),
-       send_message:()=>dispatch({type:"Send_Message"})
+       send_message:()=>dispatch({type:"Send_Message"}),
+       make_chat_complete:()=>dispatch({type:"Make_Chat_Complete"})
   }
 }
 

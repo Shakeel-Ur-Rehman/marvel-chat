@@ -8,10 +8,23 @@ const initialstate={
         },
         {
             id:3,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
+        },
+        {
+            id:4,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
+        },
+        {
+            id:5,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
+        },
+        {
+            id:6,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
+        },
+        {
+            id:7,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
         }
     ],
     active_inbox:1,
     active_ownership:false,
+    active_complete_inbox:false,
     new_message:""
 
     
@@ -33,9 +46,14 @@ export default (state = initialstate, action) => {
             ...state,
               new_message:action.message
         }
+        case 'Make_Chat_Complete':
+            return {
+                ...state,
+                  active_complete_inbox:!state.active_complete_inbox
+            }
         case 'Send_Message':
             var new_inbox=state.inbox
-            var index=new_inbox.findIndex(value=>value.id==state.active_inbox);
+            var index=new_inbox.findIndex(value=>value.id===state.active_inbox);
             new_inbox[index].messages.push(state.new_message);
             return{
                 ...state,

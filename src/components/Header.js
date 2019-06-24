@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import {Button,Navbar,Nav,Container,Row,Col, Badge} from 'react-bootstrap'
+import {Button,Navbar,Nav,Container,Row,Col, Badge} from 'react-bootstrap';
+import {withRouter} from "react-router-dom"
+import {connect} from "react-redux"
 
 class Header extends Component {
+    handleClick(e,value){
+        e.preventDefault();
+        this.props.setActiveTab(value)
+        this.props.history.push(value)
+    }
     render() {
         return (
             <div style={{backgroundColor:"white"}}>
@@ -15,9 +22,9 @@ class Header extends Component {
                     </Col>
                     <Col>
                         <Nav style={{height:'100%'}}>
-                            <Nav.Link href="#home" style={{background:"#E5E9F2",paddingTop:"6%"}}>Conversations</Nav.Link>
-                            <Nav.Link href="#features" style={{paddingTop:"6%"}}>Live Scripts</Nav.Link>
-                            <Nav.Link href="#pricing" style={{paddingTop:"6%"}}>Members</Nav.Link>
+                            <Nav.Link href="/conversations" onClick={(e)=>this.handleClick(e,"conversations")} style={this.props.active_tab==="conversations"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Conversations</Nav.Link>
+                            <Nav.Link href="/livescritps" onClick={(e)=>this.handleClick(e,"livescripts")} style={this.props.active_tab==="livescripts"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Live Scripts</Nav.Link>
+                            <Nav.Link href="/members" onClick={(e)=>this.handleClick(e,"members")} style={this.props.active_tab==="members"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Members</Nav.Link>
                         </Nav>
                     </Col>
                     <Col>
@@ -38,5 +45,15 @@ class Header extends Component {
         )
     }
 }
-export default Header
+const mapStateToProps=(state)=>{
+return{
+    active_tab:state.applicationReducer.active_tab
+}
+}
+const mapDispatchToProps=(dispatch)=>{
+return{
+    setActiveTab:(value)=>dispatch({type:"SetActiveTab",value})
+}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Header))
 
