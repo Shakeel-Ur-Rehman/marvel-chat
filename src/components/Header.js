@@ -30,10 +30,22 @@ class Header extends Component {
                     <Col>
                      <div style={{height:"100%",paddingTop:"25px",textAlign:'right'}}>
                     <span style={{marginRight:"10px"}}>
-                        <i className="fa fa-bell" style={{fontSize:"35px"}}></i>
+                        <i className="fa fa-bell" onClick={()=>{
+                            document.getElementById("notificationbar").classList.toggle("showhide")
+                        }} style={{fontSize:"35px"}}></i>
                         <Badge variant="danger" style={{top:"-17px",position: "relative",left: "-36px"}}>7</Badge>
                         </span>
-                    <span><i className="fa fa-smile-o" style={{fontSize:"35px"}}></i></span>
+                    <div id="notificationbar" className="showhide">
+                   
+                        <p style={{textAlign:"center"}}>Some Notification</p>
+                        <p style={{textAlign:"center"}}>Some Notification</p>
+                        <p style={{textAlign:"center"}}>Some Notification</p>
+                        <p style={{textAlign:"center"}}>Some Notification</p>
+                  
+                    </div>
+                    <span><i className="fa fa-smile-o" style={{fontSize:"35px"}} onClick={()=>{
+                        this.props.history.push("profile")
+                    }}></i></span>
                           </div>
                     </Col>
                 </Row>
