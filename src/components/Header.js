@@ -18,13 +18,13 @@ class Header extends Component {
                 <Container fluid={true}>
                 <Row style={{height:"77px"}}>
                     <Col>
-                            <Button  style={{width:"100px",marginTop:"6%",background:"#8190A5"}}>Logo</Button>
+                            <Button  style={{width:"100px",marginTop:"6%",background:"#8190A5",fontSize:"15px"}}>Logo</Button>
                     </Col>
                     <Col>
                         <Nav style={{height:'100%'}}>
-                            <Nav.Link href="/conversations" onClick={(e)=>this.handleClick(e,"conversations")} style={this.props.active_tab==="conversations"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Conversations</Nav.Link>
-                            <Nav.Link href="/livescritps" onClick={(e)=>this.handleClick(e,"livescripts")} style={this.props.active_tab==="livescripts"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Live Scripts</Nav.Link>
-                            <Nav.Link href="/members" onClick={(e)=>this.handleClick(e,"members")} style={this.props.active_tab==="members"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Members</Nav.Link>
+                            <Nav.Link href="/conversations" onClick={(e)=>this.handleClick(e,"conversations")} style={this.props.active_tab==="conversations"?{background:"#E5E9F2",paddingTop:"6%",fontSize:"18px"}:{paddingTop:"6%",fontSize:"18px"}}>Conversations</Nav.Link>
+                            <Nav.Link href="/livescritps" onClick={(e)=>this.handleClick(e,"livescripts")} style={this.props.active_tab==="livescripts"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%",fontSize:"18px"}}>Live Scripts</Nav.Link>
+                            <Nav.Link href="/members" onClick={(e)=>this.handleClick(e,"members")} style={this.props.active_tab==="members"?{background:"#E5E9F2",paddingTop:"6%",fontSize:"18px"}:{paddingTop:"6%",fontSize:"18px"}}>Members</Nav.Link>
                         </Nav>
                     </Col>
                     <Col>
