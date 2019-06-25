@@ -28,7 +28,19 @@
 .App-link {
   color: #61dafb;
 }
-
+#notificationbar{
+    top:75px;
+    border: 1px solid;
+    right: 14px;
+    height: 200px;
+    position: absolute;
+    width: 200px;
+    background-color: white;
+    z-index: 200;
+}
+.showhide{
+  display: none;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
