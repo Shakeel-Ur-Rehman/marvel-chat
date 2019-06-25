@@ -12,7 +12,7 @@ import {connect} from 'react-redux'
             <InboxDetail/>
             <div>
                 <div  style={{background:"white",height:"52px",padding:"10px",marginBottom:"10px"}}>
-                <p style={{float:"left"}}>Take Ownership</p>
+                <p style={{float:"left",fontSize:"20px"}}>Take Ownership</p>
                  <div style={{float:"right"}}>
                     <Switch
                         checked={this.props.active}
@@ -34,8 +34,7 @@ import {connect} from 'react-redux'
             </div>
             <div style={{background:"white"}}>
             <Container>
-            <h5 style={{textAlign:"center",margin:"20px 0px"}}>Other Infromation</h5>
-            <div style={{background:"#E9EBEE",height:"180px",marginBottom:"5px"}}></div>
+            <h5 style={{textAlign:"center",margin:"20px 0px",fontSize:"22px",fontWeight:700}}>Other Infromation</h5>
             <div style={{background:"#E9EBEE",height:"180px",marginBottom:"5px"}}></div>
             <div style={{background:"#E9EBEE",height:"180px",marginBottom:"5px"}}></div>
             <div style={{background:"#E9EBEE",height:"180px",marginBottom:"5px"}}></div>

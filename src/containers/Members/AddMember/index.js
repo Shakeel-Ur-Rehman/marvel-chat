@@ -16,9 +16,9 @@ class index extends React.Component {
           </Modal.Header>
           <Modal.Body>
               <div id="main">
-                 <h4>Add Member</h4>
-                    <p>
-                        Cras mattis consectetur purus sit amet fermentum.
+                 <h4 id="heading_add">Add Member</h4>
+                    <p id="paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec nibh vitae...
                     </p>
             <InputGroup className="mb-3">
                 <FormControl

@@ -1,6 +1,8 @@
 #left_main_container{
     margin-top:50px;
     padding:50px;
+    font-size: 16px;
+    font-weight: 700;
 }
 #center_main_container{
 
@@ -9,6 +11,14 @@
     border-bottom:1px solid rgba(81, 81, 81, 0.3);
     margin-top:30px;
     margin-bottom:30px;
+    font-size:26px;
+    font-weight:700;
+   
+}
+#event_heading{
+    float:left;
+    font-size:18px;
+    font-weight:700;
 }
 .icon_size{
     float:right;

@@ -17,7 +17,7 @@ import {connect} from 'react-redux'
               <div className="col-md-3">
             <Sidebar/>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6" style={{padding:"0px"}}>
             <Messenger/>
             </div>
             <div className="col-md-3">

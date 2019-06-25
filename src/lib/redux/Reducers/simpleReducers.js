@@ -25,7 +25,8 @@ const initialstate={
     active_inbox:1,
     active_ownership:false,
     active_complete_inbox:false,
-    new_message:""
+    new_message:"",
+    search:""
 
     
 }
@@ -62,6 +63,14 @@ export default (state = initialstate, action) => {
                 ],
                 new_message:""
             }
+        case 'Change_Search':
+            {
+                return {
+                    ...state,
+                    search:action.value
+                }
+            }
+
      default:
       return state
     }

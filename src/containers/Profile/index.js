@@ -1,6 +1,8 @@
 import React, { Component} from 'react'
 import { Button } from 'react-bootstrap';
 import "./profile.css"
+
+
 export default class index extends Component {
     render() {
         return (
@@ -8,7 +10,7 @@ export default class index extends Component {
                 <h2 id="profiletext">Profile</h2>
             <div id="profile">
                 <div className="row lineheight">
-                    <p className="col-md-4">
+                    <p className="col-md-4 data">
             Name
                   </p>
                   <p className="col-md-4">
@@ -16,7 +18,7 @@ export default class index extends Component {
                   </p>  
                     </div>
                     <div className="row lineheight" >
-                    <p className="col-md-4">
+                    <p className="col-md-4 data">
             Email
                   </p>
                   <p className="col-md-4">
@@ -24,7 +26,7 @@ export default class index extends Component {
                   </p>  
                     </div>
                     <div className="row lineheight" >
-                    <p className="col-md-4">
+                    <p className="col-md-4 data">
             Phone
                   </p>
                   <p className="col-md-4">
@@ -32,15 +34,15 @@ export default class index extends Component {
                   </p>  
                     </div>
                     <div className="row lineheight" >
-                    <p className="col-md-4">
+                    <p className="col-md-4 data">
             New Password
                   </p>
-                  <p className="col-md-4">
+                  <p className="col-md-4 ">
             change Password
                   </p>  
                     </div>
                     <div className="row lineheight" >
-                    <p className="col-md-4">
+                    <p className="col-md-4 data">
             Abc Email
                   </p>
                   <p className="col-md-4">
@@ -48,7 +50,7 @@ export default class index extends Component {
                   </p>  
                     </div>
                     <div className="row lineheight" >
-                    <p className="col-md-4">
+                    <p className="col-md-4 data">
             SMS Number
                   </p>
                   <p className="col-md-4">
@@ -56,7 +58,7 @@ export default class index extends Component {
                   </p>  
                     </div>
                     <div className="row lineheight" >
-                    <p className="col-md-4">
+                    <p className="col-md-4 data">
             Time Zone
                   </p>
                   <p className="col-md-4">
@@ -64,7 +66,7 @@ export default class index extends Component {
                   </p>  
                     </div>
                     <div className="row lineheight" >
-                    <p className="col-md-4">
+                    <p className="col-md-4 data">
             Plan
                   </p>
                   <p className="col-md-4">
