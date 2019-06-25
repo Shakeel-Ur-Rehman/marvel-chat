@@ -10,7 +10,7 @@ import {connect} from 'react-redux'
             <div style={{height:"550px"}}>
             <div style={{display:"flex",flexDirection:"column"}}>
             <div style={{marginBottom:"10px",background:"white"}}>
-            <p style={{margin:"10px",fontSize:"18px",float:"left"}}>{activekey[0].name}<span style={{color:"#5A5A5A",marginLeft:"15px"}}>Last active an hour ago</span></p>
+            <p style={{margin:"10px",fontSize:"20px",float:"left"}}>{activekey[0].name}<span style={{color:"#5A5A5A",marginLeft:"15px",fontSize:"18px"}}>Last active an hour ago</span></p>
             <div style={{float:"right",marginTop:"15px"}}>
             <Switch
                         checked={this.props.active_complete_inbox}
@@ -30,7 +30,7 @@ import {connect} from 'react-redux'
                 </div>
             </div>
             <div style={{background:"white"}}>
-                <div id="messages" style={{height:"910px",borderBottom:"1px solid black",overflowY:"scroll"}}>
+                <div id="messages" style={{height:"725px",borderBottom:"1px solid black",overflowY:"scroll"}}>
                 <div className="recieved_message" style={{margin:"10px",height:"150px"}}>
                   <div style={{float:"left",width:"20%"}}>
                   <div style={{float:"left",margin:"10% 0px 0px 30%",height:"64px",width:"64px",borderRadius:"32px",backgroundColor:"#C0CCDA"}}></div>
@@ -53,6 +53,7 @@ import {connect} from 'react-redux'
                 </div>
     <InputGroup className="mb-3">
     <FormControl
+    
       value={this.props.message}
       placeholder="Reply"
       onKeyPress={(e)=>{
@@ -64,7 +65,7 @@ import {connect} from 'react-redux'
       aria-describedby="basic-addon2"
       onChange={(e)=>{
         this.props.new_message(e.target.value)}}
-      style={{border:"unset",marginTop:"10px",padding:"30px 50px"}}
+      style={{border:"unset",marginTop:"10px",padding:"30px 50px",fontSize:"22px"}}
     />
     <InputGroup.Append>
       <Button variant="outline-secondary" onClick={()=>this.props.send_message()} style={{border:"unset",marginTop:"10px"}}>

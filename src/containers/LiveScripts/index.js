@@ -19,7 +19,7 @@ export default class index extends Component {
                     {[1,2,3,4].map(element => 
                     <div className="eventdiv">
                     <div style={{padding:"10px"}}>
-                    <h5 style={{float:"left"}}>Event Opening </h5>
+                    <h5 id="event_heading">Event Opening </h5>
                     <i className="fa fa-close icon_size" ></i>
                     <i className="fa fa-edit icon_size" ></i>
                     </div>
