@@ -81,10 +81,10 @@ import {connect} from 'react-redux'
 }
 function mapStateToProps(state) {
   return { 
-  active_complete_inbox:state.simpleReducer.active_complete_inbox, 
-  inbox : state.simpleReducer.inbox,
-  active: state.simpleReducer.active_inbox,
-  message:state.simpleReducer.new_message
+  active_complete_inbox:state.conversationReducer.active_complete_inbox, 
+  inbox : state.conversationReducer.inbox,
+  active: state.conversationReducer.active_inbox,
+  message:state.conversationReducer.new_message
   };
 }
 function mapDispatchToProps(dispatch){

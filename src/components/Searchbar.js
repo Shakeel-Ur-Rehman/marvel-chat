@@ -21,7 +21,7 @@ import {connect } from 'react-redux'
 function mapStateToProps(state) {
   return {
 
-  search: state.simpleReducer.search
+  search: state.conversationReducer.search
   };
 }
 function mapDispatchToProps(dispatch){

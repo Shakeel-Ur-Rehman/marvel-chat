@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
 import {connect} from 'react-redux'
+export const Change_Active_Inbox ='Change_Active_Inbox'
 
  function Inbox(props) {
 
@@ -36,14 +37,14 @@ import {connect} from 'react-redux'
 }
 function mapStateToProps(state) {
     return {
-    inbox : state.simpleReducer.inbox,
-    active: state.simpleReducer.active_inbox,
-    search:state.simpleReducer.search
+    inbox : state.conversationReducer.inbox,
+    active: state.conversationReducer.active_inbox,
+    search:state.conversationReducer.search
     };
   }
 function mapDispatchToProps(dispatch){
     return{
-        changeActiveInbox:(id)=>dispatch({type:"ChangeActiveInbox",id})
+        changeActiveInbox:(id)=>dispatch({type:"",id})
     }
   }
   

@@ -18,8 +18,8 @@ function InboxDetail({inbox,active}) {
 }
 function mapStateToProps(state) {
     return {
-    inbox : state.simpleReducer.inbox,
-    active: state.simpleReducer.active_inbox
+    inbox : state.conversationReducer.inbox,
+    active: state.conversationReducer.active_inbox
     };
   }
 export default connect(mapStateToProps)(InboxDetail);

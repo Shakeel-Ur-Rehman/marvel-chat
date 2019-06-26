@@ -47,7 +47,7 @@ import {connect} from 'react-redux'
 }
 function mapStateToProps(state) {
     return {
-    active: state.simpleReducer.active_ownership
+    active: state.conversationReducer.active_ownership
     };
   }
 function mapDispatchToProps(dispatch){
