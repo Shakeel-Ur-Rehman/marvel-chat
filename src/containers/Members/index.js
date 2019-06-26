@@ -3,6 +3,7 @@ import {Container,Button} from "react-bootstrap"
 import AddMemeber from "./AddMember"
 import {connect} from "react-redux"
 import {Remove_Member} from '../../lib/redux/Actions/membersAction'
+import {Toggle_Member_Modal} from '../../lib/redux/Actions/applicationActions'
 import "./index.css"
 
  class index extends Component {
@@ -60,7 +61,7 @@ const mapStateToProps=(state)=>{
 const mapDispatchToProps=(dispatch)=>{
 return{
 removeMember:(id)=>dispatch({type:Remove_Member,id}),
-toggleModal:()=>dispatch({type:"ToggleMemberModal"})
+toggleModal:()=>dispatch({type:Toggle_Member_Modal})
 }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(index)

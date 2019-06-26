@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Button,Navbar,Nav,Container,Row,Col, Badge} from 'react-bootstrap';
 import {withRouter} from "react-router-dom"
 import {connect} from "react-redux"
+import {Set_Active_Tab} from '../lib/redux/Actions/applicationActions'
 
 class Header extends Component {
     handleClick(e,value){
@@ -64,7 +65,7 @@ return{
 }
 const mapDispatchToProps=(dispatch)=>{
 return{
-    setActiveTab:(value)=>dispatch({type:"SetActiveTab",value})
+    setActiveTab:(value)=>dispatch({type:Set_Active_Tab,value})
 }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Header))
