@@ -1,3 +1,4 @@
+import {Change_Active_Inbox,Change_New_Message,Send_Message,Make_Chat_Complete,Change_Active_Ownership,Change_Search} from '../Actions/conversationActions'
 const initialstate={
     inbox:[
         {
@@ -32,27 +33,27 @@ const initialstate={
 }
 export default (state = initialstate, action) => {
     switch (action.type) {
-     case 'ChangeActiveInbox':
+     case Change_Active_Inbox:
       return {
           ...state,
             active_inbox:action.id
       }
-      case 'ChangeActiveOwnership':
+      case Change_Active_Ownership:
       return {
           ...state,
             active_ownership:!state.active_ownership
       }
-      case 'ChangeNewMessage':
+      case Change_New_Message:
         return {
             ...state,
               new_message:action.message
         }
-        case 'Make_Chat_Complete':
+        case Make_Chat_Complete:
             return {
                 ...state,
                   active_complete_inbox:!state.active_complete_inbox
             }
-        case 'Send_Message':
+        case Send_Message:
             var new_inbox=state.inbox
             var index=new_inbox.findIndex(value=>value.id===state.active_inbox);
             new_inbox[index].messages.push(state.new_message);
@@ -63,7 +64,7 @@ export default (state = initialstate, action) => {
                 ],
                 new_message:""
             }
-        case 'Change_Search':
+        case Change_Search:
             {
                 return {
                     ...state,

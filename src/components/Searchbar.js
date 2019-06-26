@@ -1,6 +1,7 @@
 import React from 'react'
 import {InputGroup,FormControl} from "react-bootstrap"
 import {connect } from 'react-redux'
+import {Change_Search} from '../lib/redux/Actions/conversationActions'
 
  function Searchbar(props) {
     return (
@@ -26,7 +27,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch){
   return{
-      changeSearch:(value)=>dispatch({type:"Change_Search",value})
+      changeSearch:(value)=>dispatch({type:Change_Search,value})
   }
 }
 

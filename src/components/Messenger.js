@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {InputGroup,FormControl,Button} from "react-bootstrap"
 import Switch from "react-switch"
 import {connect} from 'react-redux'
+import {Change_New_Message,Send_Message,Make_Chat_Complete} from '../lib/redux/Actions/conversationActions'
 
  class Messenger extends Component {
     render() {
@@ -89,9 +90,9 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch){
   return{
-       new_message:(message)=>dispatch({type:"ChangeNewMessage",message}),
-       send_message:()=>dispatch({type:"Send_Message"}),
-       make_chat_complete:()=>dispatch({type:"Make_Chat_Complete"})
+       new_message:(message)=>dispatch({type:Change_New_Message,message}),
+       send_message:()=>dispatch({type:Send_Message}),
+       make_chat_complete:()=>dispatch({type:Make_Chat_Complete})
   }
 }
 

@@ -3,6 +3,7 @@ import InboxDetail from './InboxDetail';
 import { Container } from 'react-bootstrap';
 import Switch from "react-switch";
 import {connect} from 'react-redux'
+import {Change_Active_Ownership} from '../lib/redux/Actions/conversationActions'
 
  class SideBarRight extends Component {
     render() {
@@ -53,7 +54,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
   
     return{
-        changeActiveOwnership:()=>dispatch({type:"ChangeActiveOwnership"})
+        changeActiveOwnership:()=>dispatch({type:Change_Active_Ownership})
     }
   }
   export default connect(mapStateToProps,mapDispatchToProps)(SideBarRight);
