@@ -1,6 +1,7 @@
 import React from "react"
 import "./style.css"
 import {connect} from "react-redux"
+import {SET_NEW_MEMBER} from '../../../lib/redux/Actions/membersAction'
 import {Modal,InputGroup,FormControl,DropdownButton,Dropdown, Button} from "react-bootstrap"
 class index extends React.Component {
     render() {
@@ -71,7 +72,7 @@ class index extends React.Component {
   }
   const mapDispatchToProps=(disaptch)=>{
     return{
-      set_new_message:(key,value)=>disaptch({type:"SETNEWMEMBER",key,value})
+      set_new_message:(key,value)=>disaptch({type:SET_NEW_MEMBER,key,value})
     }
   }
   export default connect(mapStateToProps,mapDispatchToProps)(index)

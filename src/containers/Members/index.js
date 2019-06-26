@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Container,Button} from "react-bootstrap"
 import AddMemeber from "./AddMember"
 import {connect} from "react-redux"
+import {Remove_Member} from '../../lib/redux/Actions/membersAction'
 import "./index.css"
 
  class index extends Component {
@@ -58,7 +59,7 @@ const mapStateToProps=(state)=>{
 }
 const mapDispatchToProps=(dispatch)=>{
 return{
-removeMember:(id)=>dispatch({type:"RemoveMember",id}),
+removeMember:(id)=>dispatch({type:Remove_Member,id}),
 toggleModal:()=>dispatch({type:"ToggleMemberModal"})
 }
 }

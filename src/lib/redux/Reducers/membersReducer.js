@@ -1,3 +1,4 @@
+import {Add_Member,Remove_Member,SET_NEW_MEMBER} from '../Actions/membersAction'
 const initialstate={
     members:[
         {
@@ -20,16 +21,16 @@ const initialstate={
 
 export default(state=initialstate,action)=>{
 switch(action.type){
-    case "AddMember":
+         case Add_Member:
         return{
             ...state
         }
-        case "RemoveMember":
+        case Remove_Member:
                 return{
                     ...state,
                     members:state.members.filter(member=>member.id!==action.id)
         }
-        case "SETNEWMEMBER":
+        case SET_NEW_MEMBER:
             return {
                 ...state,
                 newmember:{
