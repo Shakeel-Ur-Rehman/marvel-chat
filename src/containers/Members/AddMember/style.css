@@ -1,7 +1,11 @@
 #mybutton{
     text-align: left;
     padding:15px 50px;
-    width: 100%
+    width: 100%;
+    background: unset;
+    border-color: #8492A6;
+    color: #8190A5
+    
 }
 #mybutton:hover{
     background-color: unset;
@@ -35,7 +39,10 @@
     padding:30px 50px;
     border-color: #8492A6;
     border-radius: 5px;
+    color: #8190A5;
 }
 .RoleDropDown{
-    width: 100%
+    width: 100%;
+    background: unset
+    
 }
