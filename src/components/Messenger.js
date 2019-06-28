@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
-import {InputGroup,FormControl,Button} from "react-bootstrap"
+import {InputGroup,FormControl,Button,Container} from "react-bootstrap"
 import Switch from "react-switch"
 import {connect} from 'react-redux'
 import {Change_New_Message,Send_Message,Make_Chat_Complete} from '../lib/redux/Actions/conversationActions'
 
  class Messenger extends Component {
     render() {
-      var activekey=this.props.inbox.filter(inbox=>inbox.id===this.props.active)
+      var activekey={}
+      if(this.props.inbox.length>0){
+        activekey=this.props.inbox.filter(inbox=>inbox.id===this.props.active)
+        activekey=activekey[0]
+      }
         return (
+
             <div style={{height:"550px"}}>
             <div style={{display:"flex",flexDirection:"column"}}>
             <div style={{marginBottom:"10px",background:"white"}}>
-            <p style={{margin:"10px",fontSize:"20px",float:"left"}}>{activekey[0].name}<span style={{color:"#5A5A5A",marginLeft:"15px",fontSize:"18px"}}>Last active an hour ago</span></p>
+            {
+            this.props.loader?
+            <img style={{width:"25px",height:"25px",margin :" 10px 20px  "}} src="images/45.gif"/>:
+            <p style={{margin:"10px",fontSize:"20px",float:"left"}}>{activekey.topic}<span style={{color:"#5A5A5A",marginLeft:"15px",fontSize:"18px"}}>Last active an hour ago</span></p>
+            }
             <div style={{float:"right",marginTop:"15px"}}>
             <Switch
                         checked={this.props.active_complete_inbox}
@@ -41,8 +50,8 @@ import {Change_New_Message,Send_Message,Make_Chat_Complete} from '../lib/redux/A
                     <p style={{fontSize:"16px"}}>Eugene Lawson</p>
                   </div>
                 </div>
-
-              {activekey[0].messages.map(value=>
+{/* 
+              {activekey[0].description.map(value=>
 
                 <div key={value} className="sent_message" style={{margin:" 40px 10px 0px 0px"}}>
                   <div style={{float:"right",width:"70%"}}>  
@@ -50,7 +59,7 @@ import {Change_New_Message,Send_Message,Make_Chat_Complete} from '../lib/redux/A
                   </div>
                   
                 </div>)
-              }
+              } */}
                 </div>
     <InputGroup className="mb-3">
     <FormControl
@@ -77,15 +86,17 @@ import {Change_New_Message,Send_Message,Make_Chat_Complete} from '../lib/redux/A
             </div>
             </div>
         </div>
+      
         )
-    }
+      }
 }
 function mapStateToProps(state) {
   return { 
   active_complete_inbox:state.conversationReducer.active_complete_inbox, 
   inbox : state.conversationReducer.inbox,
   active: state.conversationReducer.active_inbox,
-  message:state.conversationReducer.new_message
+  message:state.conversationReducer.new_message,
+  loader:state.conversationReducer.loaderState
   };
 }
 function mapDispatchToProps(dispatch){

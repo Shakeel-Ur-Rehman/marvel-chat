@@ -3,12 +3,11 @@ import Sidebar from '../components/Sidebar';
 import SideBarRight from '../components/SideBarRight';
 import Messenger from '../components/Messenger';
 import {connect} from 'react-redux'
+import { featch_thread_list } from './Api';
 
  class Conversations extends Component {
-  componentWillMount(){
-    /*if(!sessionStorage.getItem("login")){
-      this.props.history.push("/login")
-    }*/
+  componentDidMount(){
+    featch_thread_list(this.props.dispatch)
   }
     render() {
         return (

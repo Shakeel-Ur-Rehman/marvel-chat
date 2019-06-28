@@ -1,33 +1,13 @@
-import {Change_Active_Inbox,Change_New_Message,Send_Message,Make_Chat_Complete,Change_Active_Ownership,Change_Search} from '../Actions/conversationActions'
+import {Change_Active_Inbox,Change_New_Message,Send_Message,Make_Chat_Complete,Change_Active_Ownership,Change_Search ,
+    Featch_Thread_List_Request,Featch_Thread_List_Success,Featch_Thread_List_Error,} from '../Actions/conversationActions'
 const initialstate={
-    inbox:[
-        {
-            id:1,name:"Usama",phone:"+92 300 1234987",email:"usama123@gmail.com",messages:["Usama this is your first message","Usama this is your second message"]
-        },
-        {
-            id:2,name:"Shakeel",phone:"+92 334 1234987",email:"shakeel456@gmail.com",messages:["Shakeel this is your first message","Shakeel this is your second message"]
-        },
-        {
-            id:3,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
-        },
-        {
-            id:4,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
-        },
-        {
-            id:5,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
-        },
-        {
-            id:6,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
-        },
-        {
-            id:7,name:"Mohsin",phone:"+92 343 1234987",email:"mohsin789@gmail.com",messages:["Mohsin this is your first message","Mohsin this is your second message"]
-        }
-    ],
-    active_inbox:1,
+    inbox:[],
+    active_inbox:3,
     active_ownership:false,
     active_complete_inbox:false,
     new_message:"",
-    search:""
+    search:"",
+    loaderState:false
 
     
 }
@@ -71,6 +51,35 @@ export default (state = initialstate, action) => {
                     search:action.value
                 }
             }
+
+        case Featch_Thread_List_Request:
+            {
+                return{
+                    ...state,
+                    loaderState:true
+                }
+                
+            }
+        case Featch_Thread_List_Success:
+            {
+                console.log('called')
+                return{
+                    ...state,
+                    inbox:action.result,
+                    loaderState:false
+                }
+            }
+        case Featch_Thread_List_Error: 
+        {
+            console.log(action.error)
+            
+                return{
+                    ...state,
+                    loaderState:false
+                }
+            
+
+        }       
 
      default:
       return state
