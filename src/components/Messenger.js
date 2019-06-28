@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
-import {InputGroup,FormControl,Button} from "react-bootstrap"
+import {InputGroup,FormControl,Button,Container} from "react-bootstrap"
 import Switch from "react-switch"
 import {connect} from 'react-redux'
+import {Change_New_Message,Send_Message,Make_Chat_Complete} from '../lib/redux/Actions/conversationActions'
 
  class Messenger extends Component {
     render() {
-      var activekey=this.props.inbox.filter(inbox=>inbox.id===this.props.active)
+      var activekey={}
+      if(this.props.inbox.length>0){
+        activekey=this.props.inbox.filter(inbox=>inbox.id===this.props.active)
+        activekey=activekey[0]
+      }
         return (
+
             <div style={{height:"550px"}}>
             <div style={{display:"flex",flexDirection:"column"}}>
             <div style={{marginBottom:"10px",background:"white"}}>
-            <p style={{margin:"10px",fontSize:"18px",float:"left"}}>{activekey[0].name}<span style={{color:"#5A5A5A",marginLeft:"15px"}}>Last active an hour ago</span></p>
+            {
+            this.props.loader?
+            <img style={{width:"25px",height:"25px",margin :" 10px 20px  "}} src="images/45.gif"/>:
+            <p style={{margin:"10px",fontSize:"20px",float:"left"}}>{activekey.topic}<span style={{color:"#5A5A5A",marginLeft:"15px",fontSize:"18px"}}>Last active an hour ago</span></p>
+            }
             <div style={{float:"right",marginTop:"15px"}}>
             <Switch
                         checked={this.props.active_complete_inbox}
@@ -30,7 +40,7 @@ import {connect} from 'react-redux'
                 </div>
             </div>
             <div style={{background:"white"}}>
-                <div id="messages" style={{height:"910px",borderBottom:"1px solid black",overflowY:"scroll"}}>
+                <div id="messages" style={{height:"725px",borderBottom:"1px solid black",overflowY:"scroll"}}>
                 <div className="recieved_message" style={{margin:"10px",height:"150px"}}>
                   <div style={{float:"left",width:"20%"}}>
                   <div style={{float:"left",margin:"10% 0px 0px 30%",height:"64px",width:"64px",borderRadius:"32px",backgroundColor:"#C0CCDA"}}></div>
@@ -40,8 +50,8 @@ import {connect} from 'react-redux'
                     <p style={{fontSize:"16px"}}>Eugene Lawson</p>
                   </div>
                 </div>
-
-              {activekey[0].messages.map(value=>
+{/* 
+              {activekey[0].description.map(value=>
 
                 <div key={value} className="sent_message" style={{margin:" 40px 10px 0px 0px"}}>
                   <div style={{float:"right",width:"70%"}}>  
@@ -49,10 +59,11 @@ import {connect} from 'react-redux'
                   </div>
                   
                 </div>)
-              }
+              } */}
                 </div>
     <InputGroup className="mb-3">
     <FormControl
+    
       value={this.props.message}
       placeholder="Reply"
       onKeyPress={(e)=>{
@@ -64,7 +75,7 @@ import {connect} from 'react-redux'
       aria-describedby="basic-addon2"
       onChange={(e)=>{
         this.props.new_message(e.target.value)}}
-      style={{border:"unset",marginTop:"10px",padding:"30px 50px"}}
+      style={{border:"unset",marginTop:"10px",padding:"30px 50px",fontSize:"22px"}}
     />
     <InputGroup.Append>
       <Button variant="outline-secondary" onClick={()=>this.props.send_message()} style={{border:"unset",marginTop:"10px"}}>
@@ -75,22 +86,24 @@ import {connect} from 'react-redux'
             </div>
             </div>
         </div>
+      
         )
-    }
+      }
 }
 function mapStateToProps(state) {
   return { 
-  active_complete_inbox:state.simpleReducer.active_complete_inbox, 
-  inbox : state.simpleReducer.inbox,
-  active: state.simpleReducer.active_inbox,
-  message:state.simpleReducer.new_message
+  active_complete_inbox:state.conversationReducer.active_complete_inbox, 
+  inbox : state.conversationReducer.inbox,
+  active: state.conversationReducer.active_inbox,
+  message:state.conversationReducer.new_message,
+  loader:state.conversationReducer.loaderState
   };
 }
 function mapDispatchToProps(dispatch){
   return{
-       new_message:(message)=>dispatch({type:"ChangeNewMessage",message}),
-       send_message:()=>dispatch({type:"Send_Message"}),
-       make_chat_complete:()=>dispatch({type:"Make_Chat_Complete"})
+       new_message:(message)=>dispatch({type:Change_New_Message,message}),
+       send_message:()=>dispatch({type:Send_Message}),
+       make_chat_complete:()=>dispatch({type:Make_Chat_Complete})
   }
 }
 

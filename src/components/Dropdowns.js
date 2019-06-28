@@ -7,11 +7,13 @@ export default function Dropdowns() {
     <div>
       <Container>
       <Row>
-        <Col>
-    <InputGroup className="mb-3">
+        <Col style={{padding:"10px"}}>
+    <InputGroup >
     <DropdownButton
       variant="outline-secondary"
+      style={{width:"100%"}}
       title="User Name"
+      id="username"
     
     >
       <Dropdown.Item href="#">Action</Dropdown.Item>
@@ -22,7 +24,8 @@ export default function Dropdowns() {
     </DropdownButton>
   </InputGroup>
   </Col>
-  <Col>  <InputGroup className="mb-3">
+  <Col style={{padding:"10px 10px 10px 0px"}}>
+      <InputGroup >
     <DropdownButton
       variant="outline-secondary"
       title="Status"
@@ -39,8 +42,8 @@ export default function Dropdowns() {
   </Col>
   </Row>
   <Row>
-    <Col>
-  <InputGroup className="mb-3"> 
+    <Col style={{padding: "0px 10px 10px 10px"}}>
+  <InputGroup > 
   <DropdownButton 
     variant="outline-secondary"
     title="Date"
@@ -55,7 +58,7 @@ export default function Dropdowns() {
   </DropdownButton>
 </InputGroup>
 </Col>
-<Col>
+<Col  style={{padding: "0px 10px 10px 0px"}}>
 <InputGroup className="mb-3">
 <DropdownButton
   variant="outline-secondary"

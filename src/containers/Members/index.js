@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {Container,Button} from "react-bootstrap"
 import AddMemeber from "./AddMember"
 import {connect} from "react-redux"
+import {Remove_Member} from '../../lib/redux/Actions/membersAction'
+import {Toggle_Member_Modal} from '../../lib/redux/Actions/applicationActions'
 import "./index.css"
 
  class index extends Component {
@@ -9,7 +11,7 @@ import "./index.css"
         return (
             <Container fluid={true} id="maincontainer">
                 <h4 id="heading">Members ({this.props.members.length})</h4>
-                <Button variant="primary" onClick={this.props.toggleModal}>Add Member</Button>
+                <Button size="lg" id="button" onClick={this.props.toggleModal}>Add Member</Button>
                 <div id="Main">
                     {
                         this.props.members.map(member=>        
@@ -19,7 +21,7 @@ import "./index.css"
                         <div className="image"></div>
                     </div>
                     <div className="col-md-2">
-                        <h5>{member.name}</h5>
+                        <h5 style={{fontSize:"26px"}}>{member.name}</h5>
                     </div>
                     <div className="col-md-2">
                         <p>{member.email}</p>
@@ -58,8 +60,8 @@ const mapStateToProps=(state)=>{
 }
 const mapDispatchToProps=(dispatch)=>{
 return{
-removeMember:(id)=>dispatch({type:"RemoveMember",id}),
-toggleModal:()=>dispatch({type:"ToggleMemberModal"})
+removeMember:(id)=>dispatch({type:Remove_Member,id}),
+toggleModal:()=>dispatch({type:Toggle_Member_Modal})
 }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(index)

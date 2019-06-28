@@ -1,15 +1,34 @@
 import React from 'react'
 import {InputGroup,FormControl} from "react-bootstrap"
+import {connect } from 'react-redux'
+import {Change_Search} from '../lib/redux/Actions/conversationActions'
 
-export default function Searchbar() {
+ function Searchbar(props) {
     return (
-        <InputGroup className="mb-3">
+        <InputGroup >
         <FormControl
-          placeholder="Recipient's username"
+        value={props.search}
+          placeholder="Search"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
+          onChange={(e)=>props.changeSearch(e.target.value)}
+          style={{fontWeight:700,background:"#F9F9F9"}}  
         />
+      
       </InputGroup>
     
     )
 }
+function mapStateToProps(state) {
+  return {
+
+  search: state.conversationReducer.search
+  };
+}
+function mapDispatchToProps(dispatch){
+  return{
+      changeSearch:(value)=>dispatch({type:Change_Search,value})
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Searchbar);

@@ -1,12 +1,35 @@
 
+#username{
+  width: 100%;
+  text-align: left;
+}
+#username:hover{
+  color: #47525E;
+  background: unset
+}
 #status{
   width: 100%;
+  text-align: left;
+}
+#status:hover{
+  color: #47525E;
+  background: unset
 }
 #date{
   width: 100%;
+  text-align: left;
+}
+#date:hover{
+  color: #47525E;
+  background: unset
 }
 #property{
   width: 100%;
+  text-align: left;
+}
+#property:hover{
+  color: #47525E;
+  background: unset
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

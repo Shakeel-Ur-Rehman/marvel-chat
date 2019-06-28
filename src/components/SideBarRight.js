@@ -3,6 +3,7 @@ import InboxDetail from './InboxDetail';
 import { Container } from 'react-bootstrap';
 import Switch from "react-switch";
 import {connect} from 'react-redux'
+import {Change_Active_Ownership} from '../lib/redux/Actions/conversationActions'
 
  class SideBarRight extends Component {
     render() {
@@ -12,7 +13,7 @@ import {connect} from 'react-redux'
             <InboxDetail/>
             <div>
                 <div  style={{background:"white",height:"52px",padding:"10px",marginBottom:"10px"}}>
-                <p style={{float:"left"}}>Take Ownership</p>
+                <p style={{float:"left",fontSize:"20px"}}>Take Ownership</p>
                  <div style={{float:"right"}}>
                     <Switch
                         checked={this.props.active}
@@ -34,8 +35,7 @@ import {connect} from 'react-redux'
             </div>
             <div style={{background:"white"}}>
             <Container>
-            <h5 style={{textAlign:"center",margin:"20px 0px"}}>Other Infromation</h5>
-            <div style={{background:"#E9EBEE",height:"180px",marginBottom:"5px"}}></div>
+            <h5 style={{textAlign:"center",margin:"20px 0px",fontSize:"22px",fontWeight:700}}>Other Infromation</h5>
             <div style={{background:"#E9EBEE",height:"180px",marginBottom:"5px"}}></div>
             <div style={{background:"#E9EBEE",height:"180px",marginBottom:"5px"}}></div>
             <div style={{background:"#E9EBEE",height:"180px",marginBottom:"5px"}}></div>
@@ -48,13 +48,13 @@ import {connect} from 'react-redux'
 }
 function mapStateToProps(state) {
     return {
-    active: state.simpleReducer.active_ownership
+    active: state.conversationReducer.active_ownership
     };
   }
 function mapDispatchToProps(dispatch){
   
     return{
-        changeActiveOwnership:()=>dispatch({type:"ChangeActiveOwnership"})
+        changeActiveOwnership:()=>dispatch({type:Change_Active_Ownership})
     }
   }
   export default connect(mapStateToProps,mapDispatchToProps)(SideBarRight);

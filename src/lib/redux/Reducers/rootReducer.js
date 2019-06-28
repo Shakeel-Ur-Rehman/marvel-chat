@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import simpleReducer from './simpleReducers';
+import conversationReducer from './conversationReducers';
 import applicationReducer from "./applicationReducer"
 import membersReducer from "./membersReducer"
 export default combineReducers({
- simpleReducer,
+conversationReducer,
  applicationReducer,
  membersReducer,
 }); 

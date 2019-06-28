@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Button,Navbar,Nav,Container,Row,Col, Badge} from 'react-bootstrap';
 import {withRouter} from "react-router-dom"
 import {connect} from "react-redux"
+import {Set_Active_Tab} from '../lib/redux/Actions/applicationActions'
 
 class Header extends Component {
     handleClick(e,value){
@@ -18,13 +19,13 @@ class Header extends Component {
                 <Container fluid={true}>
                 <Row style={{height:"77px"}}>
                     <Col>
-                            <Button  style={{width:"100px",marginTop:"6%",background:"#8190A5"}}>Logo</Button>
+                            <Button  style={{width:"100px",marginTop:"6%",background:"#8190A5",fontSize:"15px"}}>Logo</Button>
                     </Col>
                     <Col>
                         <Nav style={{height:'100%'}}>
-                            <Nav.Link href="/conversations" onClick={(e)=>this.handleClick(e,"conversations")} style={this.props.active_tab==="conversations"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Conversations</Nav.Link>
-                            <Nav.Link href="/livescritps" onClick={(e)=>this.handleClick(e,"livescripts")} style={this.props.active_tab==="livescripts"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Live Scripts</Nav.Link>
-                            <Nav.Link href="/members" onClick={(e)=>this.handleClick(e,"members")} style={this.props.active_tab==="members"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%"}}>Members</Nav.Link>
+                            <Nav.Link href="/conversations" onClick={(e)=>this.handleClick(e,"conversations")} style={this.props.active_tab==="conversations"?{background:"#E5E9F2",paddingTop:"6%",fontSize:"18px"}:{paddingTop:"6%",fontSize:"18px"}}>Conversations</Nav.Link>
+                            <Nav.Link href="/livescritps" onClick={(e)=>this.handleClick(e,"livescripts")} style={this.props.active_tab==="livescripts"?{background:"#E5E9F2",paddingTop:"6%"}:{paddingTop:"6%",fontSize:"18px"}}>Live Scripts</Nav.Link>
+                            <Nav.Link href="/members" onClick={(e)=>this.handleClick(e,"members")} style={this.props.active_tab==="members"?{background:"#E5E9F2",paddingTop:"6%",fontSize:"18px"}:{paddingTop:"6%",fontSize:"18px"}}>Members</Nav.Link>
                         </Nav>
                     </Col>
                     <Col>
@@ -64,7 +65,7 @@ return{
 }
 const mapDispatchToProps=(dispatch)=>{
 return{
-    setActiveTab:(value)=>dispatch({type:"SetActiveTab",value})
+    setActiveTab:(value)=>dispatch({type:Set_Active_Tab,value})
 }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Header))
