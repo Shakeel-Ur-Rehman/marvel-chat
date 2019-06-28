@@ -27,7 +27,7 @@ class index extends React.Component {
                     <p id="paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec nibh vitae...
                     </p>
-            <InputGroup className="mb-3">
+            <InputGroup className="mb-3" type="text">
                 <FormControl
                 name="name"
                 value={this.props.newmember.name}
@@ -43,6 +43,7 @@ class index extends React.Component {
                 <FormControl
                 name="email"
                 placeholder="Email"
+                type="email"
                 value={this.props.newmember.email}
                 aria-label="Email"
                 aria-describedby="basic-addon2"
@@ -64,7 +65,7 @@ class index extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
             </InputGroup>
-                <Button id="CreateButton" onClick={()=>{this.props.add_member();
+                <Button id="CreateButton" type="submit" onSubmit={()=>{this.props.add_member();
                 this.props.onHide()
                 }}>
                     Create
